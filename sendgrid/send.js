@@ -19,9 +19,7 @@ module.exports = {
   },
 
   sendEmailToInterviewer: (receiver, link, credentials) => {
-    sgMail.setApiKey(
-      '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'
-    );
+    sgMail.setApiKey(keys.EMAIL_KEY);
 
     const msg = {
       to: receiver,
