@@ -5,8 +5,6 @@ const Candidate = require('../../models/candidate.model');
 
 module.exports = {
   login: (req, res) => {
-    // console.log('came here');
-
     let loginInfo = new Login(req.body);
     // console.log(loginInfo);
     if (!loginInfo) {

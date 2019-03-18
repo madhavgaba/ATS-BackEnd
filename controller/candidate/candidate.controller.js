@@ -82,34 +82,35 @@ module.exports = {
         if (err) throw err;
         else {
           console.log(fields.length);
+          res.send(fields);
           // res.send(fields);
-          let cnt = 0;
-          fields.forEach((element, index) => {
-            if (element.status === 'InterviewScheduled') {
-              Schedules.findOne(
-                {
-                  candidateId: req.body.candidateId,
-                  jobId: element.jobId._id
-                },
-                (err, data) => {
-                  if (err) throw err;
-                  else {
-                    element.date = data.date;
-                    element.time = data.time;
-                    console.log(element.date + element.time);
-                    // fields[index].time = data.time;
-                    // console.log('----------------', fields[index]);
-                  }
-                }
-              );
-            }
-            cnt++;
-            console.log(cnt === fields.length);
-            if (cnt >= fields.length) {
-              console.log('sent', cnt);
-              res.send(fields);
-            }
-          });
+          // let cnt = 0;
+          // fields.forEach((element, index) => {
+          //   if (element.status === 'InterviewScheduled') {
+          //     Schedules.findOne(
+          //       {
+          //         candidateId: req.body.candidateId,
+          //         jobId: element.jobId._id
+          //       },
+          //       (err, data) => {
+          //         if (err) throw err;
+          //         else {
+          //           element.date = data.date;
+          //           element.time = data.time;
+          //           console.log(element.date + element.time);
+          //           // fields[index].time = data.time;
+          //           // console.log('----------------', fields[index]);
+          //         }
+          //       }
+          //     );
+          //   }
+          //   cnt++;
+          //   console.log(cnt === fields.length);
+          //   if (cnt >= fields.length) {
+          //     console.log('sent', cnt);
+          //     res.send(fields);
+          //   }
+          // });
 
           // Schedules.find(
           //   { candidateId: req.body.candidateId, status: 'InterviewScheduled' },
